@@ -10,8 +10,11 @@ export class CaloriesInfoComponent implements OnInit {
   public food;
 
   constructor(private foodService: FetchFoodInfoService) {
-    foodService.getConfig().subscribe(data => (this.food = data));
+    //executed before the ngOnInit
+    this.foodService.getConfig().subscribe(data => {
+      this.food = data["parsed"][0]["food"]["nutrients"];
+      console.log(data["parsed"][0]["food"]["nutrients"]);
+    });
   }
-
-  ngOnInit() {}
+  ngOnInit() {} //executed right after the construcor
 }
