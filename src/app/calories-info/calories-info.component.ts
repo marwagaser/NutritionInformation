@@ -24,20 +24,15 @@ export class CaloriesInfoComponent implements OnInit {
           if (data["hints"].length == 0) {
             this.errorMessage = "The food you're searching for is not found.";
             this.isError = true;
-            console.log(this.errorMessage);
           } else {
             this.food = data["hints"][0]["food"]["nutrients"];
             this.foodName = data["hints"][0]["food"]["label"];
             this.isError = false;
-            console.log(this.food);
-            console.log(JSON.stringify(data));
           }
         } else {
-          console.log(JSON.stringify(data));
           this.food = data["parsed"][0]["food"]["nutrients"];
           this.foodName = data["parsed"][0]["food"]["label"];
           this.isError = false;
-          console.log(this.food);
         }
       },
       error => {
