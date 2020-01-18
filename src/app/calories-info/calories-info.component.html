@@ -1,9 +1,38 @@
 <div>
   <span>Which food are you searching for? </span>
 </div>
-<div><input type="search" /> <button>Go</button></div>
-<!-- <div>
-  <li *ngFor="let f of food">{{ f }}</li>
-</div> -->
-{{ errorMessage }}
-{{ food.FAT }}
+<div>
+  <input type="search" [(ngModel)]="searchWord" />
+  <button (click)="onConfirm()">Go</button>
+</div>
+
+<div class="content of the page">
+  <div id="errorMessage" *ngIf="isError; else foodcontent">
+    {{ errorMessage }}
+  </div>
+  <ng-template id="foodcontent" #foodcontent>
+    <span id="foodname"> {{ foodName }} </span>
+    <ul>
+      <li>
+        <span class="food_info_label">Energy in kcal:</span>
+        {{ food.ENERC_KCAL }}
+      </li>
+      <li>
+        <span class="food_info_label">Proteins in gram:</span>
+        {{ food.PROCNT }}
+      </li>
+      <li>
+        <span class="food_info_label">Carbs in gram:</span>
+        {{ food.CHOCDF }}
+      </li>
+      <li>
+        <span class="food_info_label">Fats in gram:</span>
+        {{ food.FAT }}
+      </li>
+      <li>
+        <span class="food_info_label">Fiber in gram:</span>
+        {{ food.FIBTG }}
+      </li>
+    </ul>
+  </ng-template>
+</div>
