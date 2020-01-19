@@ -18,4 +18,8 @@ export class FetchFoodInfoService {
   errorHandling(error: HttpErrorResponse) {
     return Observable.throw(error.message || "Server Error");
   }
+  getImage(searchWord) {
+    var theimgurl = `https://pixabay.com/api/?key=${environment.imagesAPIkey}&q=yellow+flowers&image_type=photo`;
+    return this.http.get(theimgurl).pipe(catchError(this.errorHandling));
+  }
 }

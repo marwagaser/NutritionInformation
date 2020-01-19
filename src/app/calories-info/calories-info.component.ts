@@ -10,7 +10,7 @@ export class CaloriesInfoComponent implements OnInit {
   public food = "";
   public foodName = "";
   public errorMessage = "";
-  public isError = true;
+  public isError = false;
   searchWord = "";
   constructor(private foodService: FetchFoodInfoService) {
     //executed before the ngOnInit
@@ -39,5 +39,8 @@ export class CaloriesInfoComponent implements OnInit {
         this.errorMessage = error;
       }
     );
+    this.foodService
+      .getImage("s")
+      .subscribe(data => console.log(JSON.stringify(data)));
   }
 }
