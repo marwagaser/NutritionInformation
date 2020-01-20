@@ -5,6 +5,4 @@ import { CaloriesInfoComponent } from "./calories-info/calories-info.component";
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"]
 })
-export class AppComponent {
-  title = "my-app";
-}
+export class AppComponent {}
