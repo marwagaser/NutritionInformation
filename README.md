@@ -1,3 +1,5 @@
+
+# About
 This Angular application is built to inform you more about the nutrients found in the food you eat. The application is mainly dependent on fetching information, text and images, from APIs. Two major APIs were used:
 1. https://developer.edamam.com/food-database-api-docs
 2. https://pixabay.com/api/docs/
@@ -5,8 +7,11 @@ This Angular application is built to inform you more about the nutrients found i
 The `Edamam` API was used to fetch information regarding the nutrients found in the food the user searches for in this application. Meanwhile, the `Pixabay` API was used to fetch the images of the food the user searches for, in order to display both the image and the nutrients information of the searched food.
 
 # How to use the application
-Enter a the name of the food item you want to learn more about its nutrients in the search bar, then hit the button `Go`. A picture of the food item you are searching for along with the nutrients information of that item are going to be displayed.
-# MyApp
+Enter a the name of the food item you want to learn more about its nutrients in the search bar, then hit the button `Go`. A picture of the food item you are searching for along with the nutrients information of that item are going to be displayed. 
+
+# Live Demo
+Please visit the following GitHub page to try the application yourself: https://marwagaser.github.io/NutritionInformation/
+# NutriInfo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3.
 
