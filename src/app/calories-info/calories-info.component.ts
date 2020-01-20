@@ -7,8 +7,8 @@ import { FetchFoodInfoService } from "../fetch-food-info.service";
   styleUrls: ["./calories-info.component.css"]
 })
 export class CaloriesInfoComponent implements OnInit {
-  public food = "";
-  public foodName = "";
+  public food: any = "";
+  public foodName: any = "";
   public errorMessage = "";
   public isError = false;
   searchWord = "";
