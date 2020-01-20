@@ -14,3 +14,13 @@ ul :hover {
   font-size: 400%;
   color: #3cb371;
 }
+#theimg {
+  width: 20%;
+  height: auto;
+  border: 4px solid black;
+}
+.cardTitle {
+  font-weight: bold;
+  font-size: 300%;
+  color: #3cb371;
+}

@@ -12,12 +12,14 @@ export class CaloriesInfoComponent implements OnInit {
   public errorMessage = "";
   public isError = false;
   searchWord = "";
+  imgURL = "";
+  displayImg = false;
   constructor(private foodService: FetchFoodInfoService) {
     //executed before the ngOnInit
   }
   ngOnInit() {} //executed right after the construcor
   onConfirm() {
-    console.log("entered");
+    this.displayImg = false;
     this.foodService.getConfig(this.searchWord).subscribe(
       data => {
         if (data["parsed"].length == 0) {
@@ -28,19 +30,27 @@ export class CaloriesInfoComponent implements OnInit {
             this.food = data["hints"][0]["food"]["nutrients"];
             this.foodName = data["hints"][0]["food"]["label"];
             this.isError = false;
+            var img = data["hints"][0]["food"]["label"];
+            this.displayImg = true;
+
+            this.foodService.getImage(img).subscribe(data => {
+              this.imgURL = data["hits"][0]["largeImageURL"];
+            });
           }
         } else {
           this.food = data["parsed"][0]["food"]["nutrients"];
           this.foodName = data["parsed"][0]["food"]["label"];
           this.isError = false;
+          var img = data["parsed"][0]["food"]["label"];
+          this.displayImg = true;
+          this.foodService.getImage(img).subscribe(data => {
+            this.imgURL = data["hits"][0]["largeImageURL"];
+          });
         }
       },
       error => {
         this.errorMessage = error;
       }
     );
-    this.foodService
-      .getImage("s")
-      .subscribe(data => console.log(JSON.stringify(data)));
   }
 }
