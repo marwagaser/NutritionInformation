@@ -31,10 +31,11 @@ export class CaloriesInfoComponent implements OnInit {
             this.foodName = data["hints"][0]["food"]["label"];
             this.isError = false;
             var img = data["hints"][0]["food"]["label"];
-            this.displayImg = true;
-
             this.foodService.getImage(img).subscribe(data => {
-              this.imgURL = data["hits"][0]["largeImageURL"];
+              if (data["hits"].length > 0) {
+                this.displayImg = true;
+                this.imgURL = data["hits"][0]["largeImageURL"];
+              }
             });
           }
         } else {
@@ -42,9 +43,11 @@ export class CaloriesInfoComponent implements OnInit {
           this.foodName = data["parsed"][0]["food"]["label"];
           this.isError = false;
           var img = data["parsed"][0]["food"]["label"];
-          this.displayImg = true;
           this.foodService.getImage(img).subscribe(data => {
-            this.imgURL = data["hits"][0]["largeImageURL"];
+            if (data["hits"].length > 0) {
+              this.displayImg = true;
+              this.imgURL = data["hits"][0]["largeImageURL"];
+            }
           });
         }
       },
